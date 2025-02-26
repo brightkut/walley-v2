@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: walley-v2
+
+# Endpoint Path
+server:
+  servlet:
+    context-path: /api/v1
