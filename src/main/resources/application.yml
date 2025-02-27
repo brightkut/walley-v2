@@ -4,5 +4,6 @@ spring:
 
 line:
   bot:
-    channel-token: ${LINE_WALLEY_V2_CHANNEL_TOKEN}
-    channel-secret: ${LINE_WALLEY_V2_CHANNEL_SECRET}
+    channel-token: 
+    channel-secret:
+

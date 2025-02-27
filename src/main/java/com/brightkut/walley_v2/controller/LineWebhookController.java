@@ -3,6 +3,8 @@ package com.brightkut.walley_v2.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,13 +32,13 @@ public class LineWebhookController {
 
     @PostMapping
     public ResponseEntity<Message> handleWebhook(@RequestBody LineWebhookDto payload) {
-        System.out.println(payload.getDestination());
-        System.out.println(payload.getEvents());
-
-        lineMessagingClient.replyMessage(
-            new ReplyMessageRequest.Builder(payload.getEvents().get(0).getReplyToken(), List.of(new TextMessage("originalMessageText")))
+        System.out.println(payload);
+        if(!ObjectUtils.isEmpty(payload) && !CollectionUtils.isEmpty(payload.getEvents())){
+            lineMessagingClient.replyMessage(
+                new ReplyMessageRequest.Builder(payload.getEvents().getFirst().getReplyToken(), List.of(new TextMessage("Send Line back")))
                 .build()
-        );
+            ).join();
+        }
 
         return ResponseEntity.ok(new Message().setMessage("WalleyV2 send message back successfully."));
     }
