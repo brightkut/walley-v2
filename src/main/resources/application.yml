@@ -6,3 +6,8 @@ spring:
 server:
   servlet:
     context-path: /api/v1
+
+line:
+  bot:
+    channel-token: ${LINE_WALLEY_V2_CHANNEL_TOKEN}
+    channel-secret: ${LINE_WALLEY_V2_CHANNEL_SECRET}
