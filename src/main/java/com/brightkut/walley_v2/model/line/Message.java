@@ -1,4 +1,4 @@
-package com.brightkut.walley_v2.model;
+package com.brightkut.walley_v2.model.line;
 
 import java.math.BigInteger;
 

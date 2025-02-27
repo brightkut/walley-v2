@@ -8,12 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.linecorp.bot.spring.boot.handler.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.handler.annotation.LineMessageHandler;
-import com.linecorp.bot.webhook.model.CallbackRequest;
-import com.linecorp.bot.webhook.model.MessageEvent;
-import com.linecorp.bot.webhook.model.TextMessageContent;
-import com.brightkut.walley_v2.model.LineWebhookDto;
+import com.brightkut.walley_v2.model.line.LineWebhookDto;
 import com.linecorp.bot.messaging.client.MessagingApiClient;
 import com.linecorp.bot.messaging.model.ReplyMessageRequest;
 import com.linecorp.bot.messaging.model.TextMessage;
