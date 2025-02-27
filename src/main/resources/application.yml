@@ -2,11 +2,6 @@ spring:
   application:
     name: walley-v2
 
-# Endpoint Path
-server:
-  servlet:
-    context-path: /api/v1
-
 line:
   bot:
     channel-token: ${LINE_WALLEY_V2_CHANNEL_TOKEN}

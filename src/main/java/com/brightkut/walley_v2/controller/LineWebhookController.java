@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.linecorp.bot.spring.boot.handler.annotation.LineMessageHandler;
+import com.brightkut.walley_v2.model.Message;
 import com.brightkut.walley_v2.model.line.LineWebhookDto;
 import com.linecorp.bot.messaging.client.MessagingApiClient;
 import com.linecorp.bot.messaging.model.ReplyMessageRequest;
@@ -28,7 +29,7 @@ public class LineWebhookController {
     }
 
     @PostMapping
-    public ResponseEntity<String> handleWebhook(@RequestBody LineWebhookDto payload) {
+    public ResponseEntity<Message> handleWebhook(@RequestBody LineWebhookDto payload) {
         System.out.println(payload.getDestination());
         System.out.println(payload.getEvents());
 
@@ -37,6 +38,6 @@ public class LineWebhookController {
                 .build()
         );
 
-        return ResponseEntity.ok("Received");
+        return ResponseEntity.ok(new Message().setMessage("WalleyV2 send message back successfully."));
     }
 }
