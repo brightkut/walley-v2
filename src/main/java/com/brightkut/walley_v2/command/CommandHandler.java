@@ -1,6 +1,8 @@
 package com.brightkut.walley_v2.command;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
@@ -11,7 +13,7 @@ import com.brightkut.walley_v2.constant.CommonConstant;
 
 @Component
 public class CommandHandler {
-    private final HashMap<String, BaseCommand> commands;
+    private final List<BaseCommand> commands;
     
     private final ViewWalletCommand viewWalletCommand;
     private final ManageCategoryCommand manageCategoryCommand;
@@ -23,15 +25,14 @@ public class CommandHandler {
     ) {
         this.viewWalletCommand = viewWalletCommand;
         this.manageCategoryCommand = manageCategoryCommand;
-        commands = new HashMap<>();
-        commands.put(CommonConstant.VIEW_WALLET, this.viewWalletCommand);
-        commands.put(CommonConstant.MANAGE_CATEGORY, this.manageCategoryCommand);
+        commands = new ArrayList<>();
+        commands.add(this.viewWalletCommand);
+        commands.add(this.manageCategoryCommand);
     }
 
      public BaseCommand getCommand(String commandMessage){
-        if(commands.containsKey(commandMessage))
-            return commands.get(commandMessage);
-
+        for(BaseCommand command : commands) if(commandMessage.contains(command.getName())) return command;
+        
         return null;
     }
 
