@@ -5,6 +5,7 @@ import java.util.HashMap;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
+import com.brightkut.walley_v2.command.category.ManageCategoryCommand;
 import com.brightkut.walley_v2.command.wallet.ViewWalletCommand;
 import com.brightkut.walley_v2.constant.CommonConstant;
 
@@ -13,13 +14,18 @@ public class CommandHandler {
     private final HashMap<String, BaseCommand> commands;
     
     private final ViewWalletCommand viewWalletCommand;
+    private final ManageCategoryCommand manageCategoryCommand;
+
 
     public CommandHandler(
-        ViewWalletCommand viewWalletCommand
+        ViewWalletCommand viewWalletCommand,
+        ManageCategoryCommand manageCategoryCommand
     ) {
         this.viewWalletCommand = viewWalletCommand;
+        this.manageCategoryCommand = manageCategoryCommand;
         commands = new HashMap<>();
         commands.put(CommonConstant.VIEW_WALLET, this.viewWalletCommand);
+        commands.put(CommonConstant.MANAGE_CATEGORY, this.manageCategoryCommand);
     }
 
      public BaseCommand getCommand(String commandMessage){
