@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.linecorp.bot.spring.boot.handler.annotation.LineMessageHandler;
 
-import okhttp3.OkHttpClient;
-
 import com.brightkut.walley_v2.command.CommandHandler;
 import com.brightkut.walley_v2.model.Message;
 import com.brightkut.walley_v2.model.line.LineWebhookDto;

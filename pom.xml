@@ -59,7 +59,7 @@
     		<version>9.6.0</version>
 		</dependency>
 
-		<!-- AWS -->
+		<!-- AWS Lambda -->
 		<dependency>
     		<groupId>com.amazonaws.serverless</groupId>
     		<artifactId>aws-serverless-java-container-springboot3</artifactId>
@@ -74,6 +74,13 @@
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
+
+		<!-- Dynamo DB-->
+		<dependency>
+    		<groupId>com.amazonaws</groupId>
+    		<artifactId>aws-java-sdk-dynamodb</artifactId>
+    		<version>1.12.698</version>
+		</dependency>
 
 	</dependencies>
 
