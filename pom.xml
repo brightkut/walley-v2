@@ -82,6 +82,24 @@
     		<version>1.12.698</version>
 		</dependency>
 
+		<!-- Postgres DB -->
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+		<dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>5.1.0</version>
+        </dependency>
+
+		<dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+        </dependency>
+
 	</dependencies>
 
 	<build>

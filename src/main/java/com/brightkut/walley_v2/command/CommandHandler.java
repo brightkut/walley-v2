@@ -25,6 +25,7 @@ public class CommandHandler {
     ) {
         this.viewWalletCommand = viewWalletCommand;
         this.manageCategoryCommand = manageCategoryCommand;
+        
         commands = new ArrayList<>();
         commands.add(this.viewWalletCommand);
         commands.add(this.manageCategoryCommand);

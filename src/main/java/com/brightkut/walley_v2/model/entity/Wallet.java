@@ -1,11 +1,13 @@
 package com.brightkut.walley_v2.model.entity;
 
 import java.math.BigDecimal;
+import java.util.List;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,11 +17,18 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-@DynamoDBTable(tableName = "wallet")
+@Table(name =  "wallet")
+@Entity
 public class Wallet {
-    @DynamoDBHashKey
+    @Id
     private String walletId; // It is a userId from LINE
 
-    @DynamoDBAttribute
+    @Column(name = "total_money")
     private BigDecimal totalMoney;
+
+    @OneToMany(mappedBy = "wallet")
+    private List<Transaction> transactions;
+
+    @OneToMany(mappedBy = "wallet")
+    private List<Category> categories;
 }

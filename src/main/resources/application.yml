@@ -1,9 +1,19 @@
 spring:
   application:
     name: walley-v2
-
+  datasource:
+    url: ${DB_WALLEY_V2_URL}
+    driver-class-name: org.postgresql.Driver  # Set Driver
+    username: ${DB_WALLEY_V2_USER}  # Set username
+    password: ${DB_WALLEY_V2_PASS}  # Set password
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate  # Configure type of DDL
+    show-sql: true  # Display SQL query in log
+      
 line:
   bot:
-    channel-token: 
-    channel-secret:
+    channel-token: ${LINE_WALLEY_V2_CHANNEL_TOKEN}
+    channel-secret: ${LINE_WALLEY_V2_CHANNEL_SECRET}
 
