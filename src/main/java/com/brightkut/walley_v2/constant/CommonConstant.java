@@ -12,23 +12,24 @@ public class CommonConstant {
     public static final String VIEW_WALLET_RES = "มีจำนวณเงินในกระเป๋า %s บาท";
     
     // Command Category Req
-    public static final String MANAGE_CATEGORY ="ต้องการเพิ่ม , ลด, หรือ ดูหมวดหมู่ทั้งหมด";
-    public static final String CREATE_CATEGORY = "#5 เพิ่ม";
-    public static final String DELETE_CATEGORY = "#5 ลบ";
-    public static final String VIEW_CATEGORY = "#5 ดู";
+    public static final String VIEW_ALL_CATEGORY ="ต้องการเพิ่ม , ลด, หรือ ดูหมวดหมู่ทั้งหมด";
+    public static final String MANAGE_CATEGORY = "#5 ";
     
     // Command Category Res
-    public static final String MANAGE_CATEGORY_RES ="""
-            โปรดพิมพ์ข้อความต่อไปนี้ 
-            #5 เพิ่ม <ชื่อหมวดหมู่>
-            #5 ลบ <ชื่อหมวดหมู่>
-            #5 ดู 
+    public static final String VIEW_ALL_CATEGORY_RES ="""
+            โปรดพิมพ์ข้อความต่อไปนี้\n 
+            #5 เพิ่ม <ชื่อหมวดหมู่>\n
+            #5 ลบ <ชื่อหมวดหมู่>\n
+            #5 ดู\n
             """;            
     public static String CREATE_CATEGORY_DUPLICATE_RES = "หมวดหมู่นี้มีอยู่แล้ว";
     public static String CREATE_CATEGORY_INVALID_RES = "คำสั่งที่ใช้เพิ่มหมวดหมู่ไม่ถูกต้อง";
     public static String CREATE_CATEGORY_RES = "สร้างหมวดหมู่ %s สำเร็จ";
-    public static String DELETE_CATEGORY_RES = "";
+    public static String DELETE_CATEGORY_RES = "ลบหมวดหมู่ %s สำเร็จ";
     public static String VIEW_CATEGORY_RES = "";
+
+    public static String CATEGORY_NOT_FOUND_RES = "ไม่พบเจอชื่อหมวดหมู่นี้ในระบบ";
+    public static String WALLET_NOT_FOUND_RES = "ไม่พบกระเป๋าเงิน กรุณาสร้างกระเป๋าเงินก่อน ผ่านเมนู wallet หรือ กด Icon wallet";
 
     // Status
     public static String ERROR_COMMAND_NOT_FOUND = "ไม่พบข้อมูลของคำสั่งนี้ในระบบ";
