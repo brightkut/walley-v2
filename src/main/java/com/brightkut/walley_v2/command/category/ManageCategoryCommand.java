@@ -2,9 +2,12 @@ package com.brightkut.walley_v2.command.category;
 
 
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 import com.brightkut.walley_v2.command.BaseCommand;
 import com.brightkut.walley_v2.constant.CommonConstant;
@@ -13,7 +16,6 @@ import com.brightkut.walley_v2.repository.CategoryRepository;
 import com.brightkut.walley_v2.repository.WalletRepository;
 
 import jakarta.transaction.Transactional;
-import lombok.extern.slf4j.Slf4j;
 
 @Component
 public class ManageCategoryCommand implements BaseCommand {
@@ -73,7 +75,13 @@ public class ManageCategoryCommand implements BaseCommand {
             return String.format(CommonConstant.DELETE_CATEGORY_RES, categoryName);
 
         }else if(CommonConstant.VIEW.equals(subCommand)){
+            var categories = categoryRepository.findAllByWalletId(userId);
 
+            if(CollectionUtils.isEmpty(categories)){
+                return CommonConstant.CATEGORY_EMPTY_RES;
+            }
+
+            return this.getViewCategoryRes(categories);
         }
 
         return CommonConstant.CREATE_CATEGORY_INVALID_RES;
@@ -84,4 +92,18 @@ public class ManageCategoryCommand implements BaseCommand {
         return CommonConstant.MANAGE_CATEGORY;
     }
     
+    private String getViewCategoryRes(List<Category> categories){
+        var sb = new StringBuilder(CommonConstant.NEW_LINE);
+
+        sb.append(CommonConstant.VIEW_CATEGORY_RES);
+
+        int count = 1; 
+
+        for(var c: categories){
+            sb.append(String.format(CommonConstant.VIEW_CATEGORY_LIST_RES, String.valueOf(count), c.getCategoryName()));
+            count++;
+        }
+
+        return sb.toString();
+    }
 }

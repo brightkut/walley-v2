@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
+import com.brightkut.walley_v2.command.category.ManageCategoryCommand;
 import com.brightkut.walley_v2.command.category.ViewAllCategoryCommand;
 import com.brightkut.walley_v2.command.wallet.ViewWalletCommand;
 import com.brightkut.walley_v2.constant.CommonConstant;
@@ -16,18 +17,22 @@ public class CommandHandler {
     private final List<BaseCommand> commands;
     
     private final ViewWalletCommand viewWalletCommand;
-    private final ViewAllCategoryCommand manageCategoryCommand;
+    private final ViewAllCategoryCommand viewAllCategoryCommand;
+    private final ManageCategoryCommand manageCategoryCommand;
 
 
     public CommandHandler(
         ViewWalletCommand viewWalletCommand,
-        ViewAllCategoryCommand manageCategoryCommand
+        ViewAllCategoryCommand viewAllCategoryCommand,
+        ManageCategoryCommand manageCategoryCommand
     ) {
         this.viewWalletCommand = viewWalletCommand;
+        this.viewAllCategoryCommand = viewAllCategoryCommand;
         this.manageCategoryCommand = manageCategoryCommand;
         
         commands = new ArrayList<>();
         commands.add(this.viewWalletCommand);
+        commands.add(this.viewAllCategoryCommand);
         commands.add(this.manageCategoryCommand);
     }
 

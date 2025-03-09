@@ -26,9 +26,11 @@ public class CommonConstant {
     public static String CREATE_CATEGORY_INVALID_RES = "คำสั่งที่ใช้เพิ่มหมวดหมู่ไม่ถูกต้อง";
     public static String CREATE_CATEGORY_RES = "สร้างหมวดหมู่ %s สำเร็จ";
     public static String DELETE_CATEGORY_RES = "ลบหมวดหมู่ %s สำเร็จ";
-    public static String VIEW_CATEGORY_RES = "";
+    public static String VIEW_CATEGORY_RES = "รายการหมวดหมู่ทั้งหมดมีดังนี้";
+    public static String VIEW_CATEGORY_LIST_RES = "%s. %s";
 
     public static String CATEGORY_NOT_FOUND_RES = "ไม่พบเจอชื่อหมวดหมู่นี้ในระบบ";
+    public static String CATEGORY_EMPTY_RES = "ไม่พบเจอชื่อหมวดหมู่ใดๆนี้ในระบบ";
     public static String WALLET_NOT_FOUND_RES = "ไม่พบกระเป๋าเงิน กรุณาสร้างกระเป๋าเงินก่อน ผ่านเมนู wallet หรือ กด Icon wallet";
 
     // Status
@@ -39,4 +41,5 @@ public class CommonConstant {
     public static String ADD = "เพิ่ม";
     public static String DELETE = "ลบ";
     public static String VIEW = "ดู";
+    public static String NEW_LINE = "\n";
 }
