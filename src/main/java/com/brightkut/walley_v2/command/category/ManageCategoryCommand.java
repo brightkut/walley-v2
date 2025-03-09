@@ -53,10 +53,12 @@ public class ManageCategoryCommand implements BaseCommand {
                 log.error("Error occur when category name = {} already exist", categoryName);
                 return CommonConstant.CREATE_CATEGORY_DUPLICATE_RES;
             }
-
+            
             var saveCategory = new Category()
-                .setCategoryName(userId)
-                .setWallet(wallet.get());
+            .setCategoryName(categoryName)
+            .setWallet(wallet.get()); // Set the wallet reference
+
+            wallet.get().getCategories().add(saveCategory); // Ensure wallet has the new category
 
             categoryRepository.save(saveCategory);
 
