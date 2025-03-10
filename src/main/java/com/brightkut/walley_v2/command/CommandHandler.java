@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.brightkut.walley_v2.command.transaction.ManageTransactionCommand;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
@@ -19,21 +20,24 @@ public class CommandHandler {
     private final ViewWalletCommand viewWalletCommand;
     private final ViewAllCategoryCommand viewAllCategoryCommand;
     private final ManageCategoryCommand manageCategoryCommand;
+    private final ManageTransactionCommand manageTransactionCommand;
 
 
     public CommandHandler(
-        ViewWalletCommand viewWalletCommand,
-        ViewAllCategoryCommand viewAllCategoryCommand,
-        ManageCategoryCommand manageCategoryCommand
+            ViewWalletCommand viewWalletCommand,
+            ViewAllCategoryCommand viewAllCategoryCommand,
+            ManageCategoryCommand manageCategoryCommand, ManageTransactionCommand manageTransactionCommand
     ) {
         this.viewWalletCommand = viewWalletCommand;
         this.viewAllCategoryCommand = viewAllCategoryCommand;
         this.manageCategoryCommand = manageCategoryCommand;
-        
+        this.manageTransactionCommand = manageTransactionCommand;
+
         commands = new ArrayList<>();
         commands.add(this.viewWalletCommand);
         commands.add(this.viewAllCategoryCommand);
         commands.add(this.manageCategoryCommand);
+        commands.add(this.manageTransactionCommand);
     }
 
      public BaseCommand getCommand(String commandMessage){
