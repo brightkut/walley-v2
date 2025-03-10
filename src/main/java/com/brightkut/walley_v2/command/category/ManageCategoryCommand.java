@@ -36,7 +36,7 @@ public class ManageCategoryCommand implements BaseCommand {
     public String command(String msg, String userId) {
         String[] command = msg.split(" ");
         var subCommand = command[1];
-        var categoryName = command[2];
+        var categoryName = CommonConstant.VIEW.equals(subCommand) ? "" : command[2];
         
         var wallet = walletRepository.findById(userId);
 
@@ -65,7 +65,7 @@ public class ManageCategoryCommand implements BaseCommand {
             return String.format(CommonConstant.CREATE_CATEGORY_RES, categoryName);
 
         }else if(CommonConstant.DELETE.equals(subCommand)){
-            var category = categoryRepository.findByCategoryName(userId, categoryName);
+            var category = categoryRepository.findByCategoryName(categoryName, userId);
 
             if(!category.isPresent()){
                 log.error("Error occur when category name = {} not found", categoryName);
@@ -95,14 +95,14 @@ public class ManageCategoryCommand implements BaseCommand {
     }
     
     private String getViewCategoryRes(List<Category> categories){
-        var sb = new StringBuilder(CommonConstant.NEW_LINE);
+        var sb = new StringBuilder();
 
         sb.append(CommonConstant.VIEW_CATEGORY_RES);
 
         int count = 1; 
 
         for(var c: categories){
-            sb.append(String.format(CommonConstant.VIEW_CATEGORY_LIST_RES, String.valueOf(count), c.getCategoryName()));
+            sb.append(String.format(CommonConstant.VIEW_CATEGORY_LIST_RES, count, c.getCategoryName()));
             count++;
         }
 

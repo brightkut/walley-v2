@@ -26,8 +26,8 @@ public class CommonConstant {
     public static String CREATE_CATEGORY_INVALID_RES = "คำสั่งที่ใช้เพิ่มหมวดหมู่ไม่ถูกต้อง";
     public static String CREATE_CATEGORY_RES = "สร้างหมวดหมู่ %s สำเร็จ";
     public static String DELETE_CATEGORY_RES = "ลบหมวดหมู่ %s สำเร็จ";
-    public static String VIEW_CATEGORY_RES = "รายการหมวดหมู่ทั้งหมดมีดังนี้";
-    public static String VIEW_CATEGORY_LIST_RES = "%s. %s";
+    public static String VIEW_CATEGORY_RES = "รายการหมวดหมู่ทั้งหมดมีดังนี้\n";
+    public static String VIEW_CATEGORY_LIST_RES = "%s. %s\n";
 
     public static String CATEGORY_NOT_FOUND_RES = "ไม่พบเจอชื่อหมวดหมู่นี้ในระบบ";
     public static String CATEGORY_EMPTY_RES = "ไม่พบเจอชื่อหมวดหมู่ใดๆนี้ในระบบ";

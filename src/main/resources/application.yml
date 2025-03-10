@@ -2,6 +2,9 @@ spring:
   application:
     name: walley-v2
   datasource:
+    hikari:
+      data-source-properties:
+        cachePrepStmts: false  
     url: ${DB_WALLEY_V2_URL}
     driver-class-name: org.postgresql.Driver  # Set Driver
     username: ${DB_WALLEY_V2_USER}  # Set username

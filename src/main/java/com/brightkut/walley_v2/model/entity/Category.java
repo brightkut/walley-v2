@@ -2,7 +2,6 @@ package com.brightkut.walley_v2.model.entity;
 
 import java.util.List;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,7 +27,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String categoryId;
 
-    @Column(unique = true)
+    @Column
     private String categoryName;
 
     @ManyToOne
