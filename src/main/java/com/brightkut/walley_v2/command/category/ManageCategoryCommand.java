@@ -40,7 +40,7 @@ public class ManageCategoryCommand implements BaseCommand {
         
         var wallet = walletRepository.findById(userId);
 
-        if(!wallet.isPresent()){
+        if(wallet.isEmpty()){
             log.error("Error occur when wallet does not found");
             return CommonConstant.WALLET_NOT_FOUND_RES;
         }
@@ -67,7 +67,7 @@ public class ManageCategoryCommand implements BaseCommand {
         }else if(CommonConstant.DELETE.equals(subCommand)){
             var category = categoryRepository.findByCategoryName(categoryName, userId);
 
-            if(!category.isPresent()){
+            if(category.isEmpty()){
                 log.error("Error occur when category name = {} not found", categoryName);
                 return CommonConstant.CATEGORY_NOT_FOUND_RES;
             }

@@ -1,6 +1,7 @@
 package com.brightkut.walley_v2.model.entity;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -14,10 +15,12 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Accessors(chain = true)
 @Table(name = "transaction")
 @Entity
 public class Transaction {
@@ -35,7 +38,7 @@ public class Transaction {
     private BigDecimal amount;
 
     @Column
-    private Date date;
+    private LocalDate date;
 
     @ManyToOne
     @JoinColumn(name = "wallet_id")

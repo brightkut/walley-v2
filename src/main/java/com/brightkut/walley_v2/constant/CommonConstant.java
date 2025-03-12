@@ -35,13 +35,15 @@ public class CommonConstant {
 
     // Command Transaction Req
     public static final String MANAGE_TRANSACTION = "ต้องการเพิ่มลดข้อมูลรายการใช้จ่าย";
+    public static final String ADD_TRANSACTION = "#2 ";
 
     // Command Transaction Res
     public static final String MANAGE_TRANSACTION_RES = """
             โปรดพิมพ์ข้อความต่อไปนี้\n 
-            #2 เพิ่มรายรับ <ชื่อรายการ> <จำนวนเงิน> <วัน-เดือน-ปี>\n
-            #2 เพิ่มรายจ่าย <ชื่อรายการ> <จำนวนเงิน> <วัน-เดือน-ปี>\n          
+            #2 เพิ่มรายรับ <ชื่อรายการ> <จำนวนเงิน> <หมวดหมู่> <วัน-เดือน-ปี>\n
+            #2 เพิ่มรายจ่าย <ชื่อรายการ> <จำนวนเงิน> <หมวดหมู่> <วัน-เดือน-ปี>\n          
             """;
+    public static final String ADD_TRANSACTION_RES = "เพิ่มข้อมูล %s ของรายการ %s สำเร็จ";
 
     // Status
     public static String ERROR_COMMAND_NOT_FOUND = "ไม่พบข้อมูลของคำสั่งนี้ในระบบ";
@@ -52,4 +54,8 @@ public class CommonConstant {
     public static String DELETE = "ลบ";
     public static String VIEW = "ดู";
     public static String NEW_LINE = "\n";
+    public static String INCOME_COMMAND = "เพิ่มรายรับ";
+    public static String OUTCOME_COMMAND = "เพิ่มรายจ่าย";
+    public static String INCOME = "รายรับ";
+    public static String OUTCOME = "รายจ่าย";
 }
